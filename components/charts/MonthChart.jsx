@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "@material-tailwind/react";
-import Chart from "react-apexcharts";
+import dynamic from 'next/dynamic';
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const monthConfig = {
   type: "bar",
