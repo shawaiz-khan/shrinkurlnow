@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "../ui/button";
 import {
   Card,
   CardHeader,
@@ -18,10 +17,10 @@ function UserCard() {
       </CardHeader>
       <CardBody className="p-4 text-right">
         <Typography variant="small" className="text-3xl font-bold mb-4 text-end">
-          Today's Users
+          Today&apos;s Users
         </Typography>
         <Typography variant="h4" color="blue-gray">
-          230
+          700
         </Typography>
       </CardBody>
       <CardFooter className="border-t border-blue-gray-50 p-4">
