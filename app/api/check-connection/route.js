@@ -1,4 +1,4 @@
-import { supabase } from '../../../lib/supabaseClient'
+import { supabase } from '../../../lib/supabase/supabaseClient'
 
 export async function GET(req) {
   try {
@@ -12,10 +12,10 @@ export async function GET(req) {
     }
 
     return new Response(
-      JSON.stringify({ status: 'Connection successful!', data }),
+      JSON.stringify({ status: 'Connection successful!' }),
       {
         status: 200,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' }
       }
     )
   } catch (error) {

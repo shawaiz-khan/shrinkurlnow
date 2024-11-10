@@ -1,4 +1,4 @@
-import { supabase } from '../../../lib/supabaseClient'
+import { supabase } from '../../../lib/supabase/supabaseClient'
 import { isValidUrl } from '../../../lib/validUrlCheck'
 import { checkUrlExists } from '../../../lib/supabase/checkUrlExists';
 import { nanoid } from 'nanoid'
