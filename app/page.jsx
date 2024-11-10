@@ -1,4 +1,4 @@
-import Form from "@/components/forms/GenerateForm";
+import Form from "@/components/forms/GenerateURL";
 
 export default function Home() {
   return (
