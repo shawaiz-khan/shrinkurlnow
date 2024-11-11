@@ -1,11 +1,12 @@
 import { supabase } from '../../../lib/supabaseClient'
 import { nanoid } from 'nanoid'
+import { isValidUrl } from '../../../lib/validUrlCheck'
 
 export async function POST(req) {
   try {
     const { long_url } = await req.json()
 
-    if (!long_url) {
+    if (!long_url || !isValidUrl(long_url)) {
       return new Response(
         JSON.stringify({ status: 'Failed', message: 'Invalid URL' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }

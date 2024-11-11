@@ -1,39 +1,36 @@
-'use client';
-import React, { useEffect, useState } from 'react'
+import React from 'react';
 
-const CheckConnection = () => {
-  const [status, setStatus] = useState('Checking...')
+const CheckConnection = async () => {
+  let status = '';
+  let errorMessage = '';
 
-  useEffect(() => {
-    const fetchConnectionStatus = async () => {
-        try {
-          const response = await fetch('/api/check-connection', { method: 'GET' })
-          const text = await response.text()
-      
-          console.log('Raw response:', text)
-      
-          const result = JSON.parse(text)
-      
-          if (response.ok) {
-            setStatus(result.status)
-          } else {
-            setStatus(`Failed to connect: ${result.error}`)
-          }
-        } catch (error) {
-          console.error('Error fetching connection status:', error)
-          setStatus('Error fetching connection status: ' + error.message)
-        }
-      }
+  try {
+    const response = await fetch(`${process.env.BASE_URL}/api/check-connection`, {
+      method: 'GET',
+      cache: 'no-store'
+    });
+    
+    const result = await response.json();
 
-    fetchConnectionStatus()
-  }, [])
+    if (response.ok) {
+      status = result.status;
+    } else {
+      status = 'Failed to connect';
+      errorMessage = result.error;
+    }
+  } catch (error) {
+    console.error('Error fetching connection status:', error);
+    status = 'Error fetching connection status';
+    errorMessage = error.message;
+  }
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Supabase Connection Status</h1>
       <p>{status}</p>
+      {errorMessage && <p>Error: {errorMessage}</p>}
     </div>
-  )
-}
+  );
+};
 
-export default CheckConnection
+export default CheckConnection;
