@@ -1,4 +1,4 @@
-import Form from "@/components/forms/GenerateForm";
+import UrlShortner from "@/components/features/UrlShortner";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
           Welcome to ShrinkUrlNow
         </h1>
         <p className="text-lg mb-6">A simple tool to shorten your URLs</p>
-        <Form />
+        <UrlShortner />
       </div>
     </section>
   );
