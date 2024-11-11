@@ -1,11 +1,13 @@
-import { supabase } from '../../../lib/supabaseClient'
-import { nanoid } from 'nanoid'
+import { supabase } from '../../../lib/supabase/supabaseClient'
 import { isValidUrl } from '../../../lib/validUrlCheck'
+import { checkUrlExists } from '../../../lib/supabase/checkUrlExists';
+import { nanoid } from 'nanoid'
 
 export async function POST(req) {
   try {
     const { long_url } = await req.json()
 
+    // Check whether URL is valid
     if (!long_url || !isValidUrl(long_url)) {
       return new Response(
         JSON.stringify({ status: 'Failed', message: 'Invalid URL' }),
@@ -13,8 +15,20 @@ export async function POST(req) {
       )
     }
 
+    // Check if Long URL already exists
+    const { exists, shortUrl } = await checkUrlExists(long_url);
+
+    if (exists) {
+      return new Response(
+        JSON.stringify({ status: 'Exists', short_url: shortUrl }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Shorten URL
     const short_url = nanoid(8)
 
+    // Store details in table
     const { data, error } = await supabase
       .from('url_pair')
       .insert([
