@@ -20,7 +20,7 @@ export async function POST(req) {
 
     if (exists) {
       return new Response(
-        JSON.stringify({ status: 'Exists', short_url: shortUrl }),
+        JSON.stringify({ status: 'Exists', short_url: `${process.env.BASE_URL}/${shortUrl}` }),
         { status: 200, headers: { 'Content-Type': 'application/json' } }
       );
     }
@@ -40,7 +40,7 @@ export async function POST(req) {
     }
 
     return new Response(
-      JSON.stringify({ status: 'Success', short_url }),
+      JSON.stringify({ status: 'Success', short_url: `${process.env.BASE_URL}/${short_url}` }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     )
   } catch (error) {
