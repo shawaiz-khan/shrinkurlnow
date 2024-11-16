@@ -15,8 +15,14 @@ const UrlShortner = () => {
 
   return (
     <div className="flex flex-col gap-5">
-      <UrlInputForm handleResponse={handleSubmitResponse} />
-      {shortUrl && <UrlDisplayCard shortUrl={shortUrl} longUrl={longUrl} />}
+      <UrlInputForm handleDisplayShortUrl={handleSubmitResponse} />
+      {shortUrl && (
+        <UrlDisplayCard
+          shortUrl={shortUrl}
+          longUrl={longUrl}
+          closeCard={() => setShortUrl(null)}
+        />
+      )}
     </div>
   );
 };
