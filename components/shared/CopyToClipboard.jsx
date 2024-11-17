@@ -8,9 +8,9 @@ const CopyToClipboard = ({ data }) => {
   return (
     <button
       onClick={copyToClipboard}
-      className="bg-gray-100  p-3 rounded-md hover:bg-gray-200 transition-colors duration-200 "
+      className="bg-gray-100  p-2 rounded-md hover:bg-gray-200 transition-colors duration-200 h-fit "
     >
-      <Copy size={20} />
+      <Copy size={18} />
     </button>
   );
 };
