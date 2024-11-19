@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ProfileSchema } from "@/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import AvatarUpload from "@/components/ui/avatar-upload";
+import AvatarUploader from "@/components/features/AvatarUploader";
 
 function ProfileForm() {
   const form = useForm({
@@ -44,7 +44,7 @@ function ProfileForm() {
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <h2 className="mt-20 text-2xl font-bold sm:text-xl">Profile</h2>
-        <AvatarUpload onFileChange={handleFileChange} />
+        <AvatarUploader onFileChange={handleFileChange} />
         <FormField
           control={form.control}
           name="username"

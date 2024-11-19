@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-const AvatarUpload = ({ onFileChange }) => {
+const AvatarUploader = ({ onFileChange }) => {
   const [avatarPreview, setAvatarPreview] = useState(null);
 
   const handleFileChange = (e) => {
@@ -44,4 +44,4 @@ const AvatarUpload = ({ onFileChange }) => {
   );
 };
 
-export default AvatarUpload;
+export default AvatarUploader;
