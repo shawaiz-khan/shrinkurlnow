@@ -1,10 +1,11 @@
 "use client";
-
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase/supabaseClient";
 
 const Signup = () => {
   const methods = useForm();
@@ -13,10 +14,31 @@ const Signup = () => {
     register,
     formState: { errors },
   } = methods;
+  const router = useRouter();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try{
+      const { error } = await supabase.auth.signUp({
+        email: data.email,
+        password: data.password,
+        options: {
+          data: {
+            username: data.username
+          }
+        }
+      });
+      if (error) {
+        console.error("Error signing up:", error.message);
+        alert("Error signing up: " + error.message); 
+      } else {
+        router.push("/dashboard")
+      }
+    }catch (error) {
+      console.error("Unexpected error:", error);
+      alert("Unexpected error occurred. Please try again.");
+    }
   };
+
 
   return (
     <section className="flex flex-col max-w-md w-full space-y-4 section">

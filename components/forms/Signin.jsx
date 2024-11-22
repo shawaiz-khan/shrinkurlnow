@@ -5,6 +5,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { supabase } from "@/lib/supabase/supabaseClient";
+import { useRouter } from "next/navigation";
 
 const Signin = () => {
   const methods = useForm();
@@ -13,9 +15,24 @@ const Signin = () => {
     register,
     formState: { errors },
   } = methods;
+  const router = useRouter();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try{
+      const { error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      });
+      if (error) {
+        console.error("Error logging in:", error.message);
+        alert("Error logging in: " + error.message); 
+      } else {
+        router.push("/")
+      }
+    }catch (error) {
+      console.error("Unexpected error:", error);
+      alert("Unexpected error occurred. Please try again.");
+    }
   };
 
   return (
