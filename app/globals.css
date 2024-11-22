@@ -123,3 +123,19 @@ body {
     @apply px-5 sm:px-10 md:px-14 lg:px-20;
   }
 }
+/* animation for switching between signIn and signUp */
+.page-container {
+    position: relative;
+    animation: slide-in 0.5s ease-in-out;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
