@@ -28,12 +28,12 @@ export default function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      className="transition-all md:hover:bg-light-secondary  md:dark:hover:bg-white p-[0.6rem] rounded-full "
+      className="transition-all   "
     >
       {theme === "dark" ? (
-        <GoSun className=" text-light-secondary text-xl dark:text-dark-secondary" />
+        <GoSun className=" text-white " />
       ) : (
-        <GoMoon className=" text-light-primary  text-xl  dark:text-dark-accent" />
+        <GoMoon className=" text-purple-800" />
       )}
     </button>
   );

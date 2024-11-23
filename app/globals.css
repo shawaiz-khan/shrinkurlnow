@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply bg-light-neutral text-light-primary;
+  @apply bg-[url('/light.png')] bg-cover text-purple-900;
 }
 
 .dark body {
-  @apply bg-dark-neutral text-dark-primary;
+  @apply bg-[url('/dark.png')] bg-cover text-purple-600;
 }
 
 @layer base {

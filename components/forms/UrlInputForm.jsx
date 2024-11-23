@@ -72,7 +72,7 @@ function UrlInputForm({ handleDisplayShortUrl }) {
                 <Input
                   type="text"
                   placeholder="Please enter a URL"
-                  className="focus:outline-none focus:border-light-primary focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary dark:focus:border-dark-primary "
+                  className="focus:outline-none focus:border-purple-900 focus:ring-2"
                   {...field}
                 />
               </FormControl>
@@ -83,8 +83,8 @@ function UrlInputForm({ handleDisplayShortUrl }) {
 
         <Button
           loading={loading}
-          className="bg-light-primary hover:bg-[#a56446] dark:bg-dark-primary dark:hover:bg-[#548ca7]"
-        >
+          className="bg-purple-900 text-white dark:bg-purple-900 dark:text-white hover:bg-purple-600 dark:hover:bg-purple-600"
+          >
           Submit
         </Button>
       </form>

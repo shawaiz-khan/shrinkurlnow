@@ -13,14 +13,13 @@ const Navbar = () => {
   const isSigninPage = pathname === "/signin";
 
   return (
-    <header className="w-full h-[5rem] flex items-center justify-between fixed top-0 bg-light-neutral dark:bg-dark-neutral left-0 right-0 section">
-      <Logo />
+    <header className="w-full h-[5rem] flex items-center justify-between fixed top-0 left-0 right-0 section bg-[url('/light.png')] dark:bg-[url('/dark.png')] bg-cover"  >    <Logo />
       <div className="flex items-center justify-center gap-5">
         <ThemeSwitcher />
         <Link href={isSigninPage ? "/signup" : "/signin"}>
           <Button
             variant="ghost"
-            className="border border-light-primary text-light-primary dark:border-dark-primary dark:text-dark-primary bg-transparent"
+            className="border  bg-purple-800 text-white rounded-full hover:bg-transparent hover:border-2 hover:border-purple-800 hover:text-purple-800 dark:hover:text-white border-none px-9"
           >
             {isSigninPage ? "Sign Up" : "Sign In"}
           </Button>

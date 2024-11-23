@@ -51,7 +51,7 @@ const Signup = () => {
           <Input
             type="text"
             label="Username"
-            className="focus:outline-none focus:border-light-primary focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary dark:focus:border-dark-primary "
+            className="focus:outline-none focus:border-purple-900 focus:ring-2"
             {...register("username", {
               required: "Username is required",
               minLength: {
@@ -64,7 +64,7 @@ const Signup = () => {
           <Input
             type="email"
             label="Email"
-            className="focus:outline-none focus:border-light-primary focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary dark:focus:border-dark-primary "
+            className="focus:outline-none focus:border-purple-900 focus:ring-2"
             {...register("email", {
               required: "Email is required",
               pattern: {
@@ -77,7 +77,7 @@ const Signup = () => {
           <Input
             type="password"
             label="Password"
-            className="focus:outline-none focus:border-light-primary focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary dark:focus:border-dark-primary "
+            className="focus:outline-none focus:border-purple-900 focus:ring-2"
             {...register("password", {
               required: "Password is required",
               minLength: {
@@ -87,13 +87,13 @@ const Signup = () => {
             })}
             error={errors.password}
           />
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="bg-purple-900 text-white dark:bg-purple-900 dark:text-white hover:bg-purple-600 dark:hover:bg-purple-600 w-full">
             Sign Up
           </Button>
         </form>
-        <small className="text-center">
+        <small className="text-center  text-black  dark:text-white ">
           Already have an account?{" "}
-          <Link href="/signin" className="font-semibold hover:font-bold">
+          <Link href="/signin" className="font-semibold hover:font-bold text-purple-900 dark:text-purple-900 hover:text-purple-600 dark:hover:text-purple-600">
             Sign In
           </Link>
         </small>
